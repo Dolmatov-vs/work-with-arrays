@@ -11,47 +11,45 @@ class StatsServiceTest {
         int sum = sumSales.calculateSum(purchases);
 
         System.out.printf("Сумма всех продаж = " + sum + "%n");
-        System.out.printf("Среднюю сумму продаж в месяц = " + sum / purchases.length);
+    }
+
+    @Test
+    void AverageAmount() {
+        StatsService averageAmount = new StatsService();
+        int averageSum = averageAmount.calculateAverageAmount(purchases);
+
+        System.out.printf("Среднюю сумму продаж в месяц = " + averageSum);
     }
 
     @Test
     void SalesHigherMiddle() {
-        StatsService sumSales = new StatsService();
-        int sum = sumSales.calculateSum(purchases);
-        int quantityHight = 0;
-        for (int i = 0; i < purchases.length; i++) {
-            if (sum / purchases.length > purchases[i])
-                quantityHight += 1;}
-        System.out.printf("Кол-во месяцев, в которых продажи были выше среднего: " + quantityHight);
+        StatsService quantityHight = new StatsService();
+        int value = quantityHight.SalesHigherMiddle(purchases);
+        System.out.printf("Кол-во месяцев, в которых продажи были выше среднего: " + value);
     }
 
     @Test
     void SalesLowMiddle() {
-        StatsService sumSales = new StatsService();
-        int sum = sumSales.calculateSum(purchases);
-        int quantityBelow = 0;
-        for (int i = 0; i < purchases.length; i++) {
-            if (sum / purchases.length < purchases[i])
-                quantityBelow += 1;}
-        System.out.printf("Кол-во месяцев, в которых продажи были ниже среднего: " + quantityBelow);
+        StatsService quantityLow = new StatsService();
+        int value = quantityLow.SalesLowMiddle(purchases);
+        System.out.printf("Кол-во месяцев, в которых продажи были ниже среднего: " + value);
     }
 
     @Test
     void calculateMin() {
         StatsService minSales = new StatsService();
-        int[] purchases = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int min = minSales.calculateMin(purchases);
 
         for (int i = 0; i < purchases.length; i++) {
             if (min == purchases[i]) {
-                System.out.printf("Номер месяца с минимальными продажами: " + (i+1) + "%n"); }
+                System.out.println("Номер месяца с минимальными продажами: " + (i+1)); }
         }
     }
+
 
     @Test
     void calculateMax() {
         StatsService maxSales = new StatsService();
-        int[] purchases = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int max = maxSales.calculateMax(purchases);
 
         for (int i = 0; i < purchases.length; i++) {
