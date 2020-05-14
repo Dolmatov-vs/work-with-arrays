@@ -6,8 +6,7 @@ class StatsServiceTest {
     int[] purchases = {8, 15, 13, 15, 17, 20, 19, 20, 16, 14, 14, 18};
 
     @Test
- //   void SumSales() {
-    void object1 () {
+    void SumSales() {
         StatsService sumSales = new StatsService();
         int sum = sumSales.calculateSum(purchases);
 
@@ -16,8 +15,7 @@ class StatsServiceTest {
     }
 
     @Test
- //   void SalesHigherMiddle() {
-    void object2 () {
+    void SalesHigherMiddle() {
         StatsService sumSales = new StatsService();
         int sum = sumSales.calculateSum(purchases);
         int quantityHight = 0;
@@ -28,8 +26,7 @@ class StatsServiceTest {
     }
 
     @Test
-//    void SalesLowMiddle() {
-    void object3 () {
+    void SalesLowMiddle() {
         StatsService sumSales = new StatsService();
         int sum = sumSales.calculateSum(purchases);
         int quantityBelow = 0;
@@ -40,8 +37,7 @@ class StatsServiceTest {
     }
 
     @Test
-//    void calculateMin() {
-    void object4 () {
+    void calculateMin() {
         StatsService minSales = new StatsService();
         int[] purchases = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int min = minSales.calculateMin(purchases);
@@ -53,8 +49,7 @@ class StatsServiceTest {
     }
 
     @Test
-//    void calculateMax() {
-    void object5 () {
+    void calculateMax() {
         StatsService maxSales = new StatsService();
         int[] purchases = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
         int max = maxSales.calculateMax(purchases);
