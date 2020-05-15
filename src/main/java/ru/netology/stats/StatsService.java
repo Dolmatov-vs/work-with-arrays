@@ -41,9 +41,9 @@ public class StatsService {
         int minSales = purchases[0];
         int month = 0;
         for (int i = 0; i < purchases.length; i++) {
-            int count = purchases[i];
-            if (minSales >= count) {
-                minSales = count;
+            int monthSale = purchases[i];
+            if (minSales >= monthSale) {
+                minSales = monthSale;
                 month = i + 1; }
         }
         return month;
@@ -53,9 +53,9 @@ public class StatsService {
         int maxSales = purchases[0];
         int month = 0;
         for (int i = 0; i < purchases.length; i++) {
-            int count = purchases[i];
-            if (maxSales <= count) {
-                maxSales = count;
+            int monthSales = purchases[i];
+            if (maxSales <= monthSales) {
+                maxSales = monthSales;
                 month = i + 1; }
         }
         return month;
