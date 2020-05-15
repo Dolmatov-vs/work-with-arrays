@@ -5,68 +5,58 @@ public class StatsService {
     public int calculateSum(int[] purchases) {
         int sumSales = 0;
         for (int index : purchases) {
-            sumSales += index;
-        }
+            sumSales += index; }
         return sumSales;
     }
 
-    public int calculateAverageAmount(int[] purchases) {
-        StatsService averageAmount = new StatsService();
-        int averageSum = (averageAmount.calculateSum(purchases)) / purchases.length;
 
+    public int calculateAverageAmount(int[] purchases) {
+        int averageSum = calculateSum(purchases) / purchases.length;
         return averageSum;
     }
 
+
     public int salesHigherMiddle(int[] purchases) {
-        StatsService averageAmount = new StatsService();
-        int averageSum = (averageAmount.calculateSum(purchases)) / purchases.length;
+        int averageSum = calculateAverageAmount(purchases);
+
         int quantityHight = 0;
         for (int i = 0; i < purchases.length; i++) {
             if (averageSum < purchases[i])
-                quantityHight++;
-        }
-
+                quantityHight++; }
         return quantityHight;
     }
 
+
     public int salesLowMiddle(int[] purchases) {
-        StatsService averageAmount = new StatsService();
-        int averageSum = (averageAmount.calculateSum(purchases)) / purchases.length;
+        int averageSum = calculateAverageAmount(purchases);
         int quantitylow = 0;
         for (int i = 0; i < purchases.length; i++) {
             if (averageSum > purchases[i])
-                quantitylow++;
-        }
-
+                quantitylow++; }
         return quantitylow;
     }
 
+
     public int calculateMin(int[] purchases) {
-        int min = purchases[0];
+        int minSales = purchases[0];
         int month = 0;
-        for (int index : purchases) {
-            if (min > index) {
-                min = index;
-            }
-            for (int i = 0; i < purchases.length; i++) {
-                if (min == purchases[i]) {
-                    month = i + 1; }
-            }
+        for (int i = 0; i < purchases.length; i++) {
+            int count = purchases[i];
+            if (minSales >= count) {
+                minSales = count;
+                month = i + 1; }
         }
         return month;
     }
 
     public int calculateMax(int[] purchases) {
-        int max = purchases[0];
+        int maxSales = purchases[0];
         int month = 0;
-        for (int purchase : purchases) {
-            if (max < purchase) {
-                max = purchase;
-            }
-            for (int i = 0; i < purchases.length; i++) {
-                if (max == purchases[i]) {
-                    month = i + 1; }
-            }
+        for (int i = 0; i < purchases.length; i++) {
+            int count = purchases[i];
+            if (maxSales <= count) {
+                maxSales = count;
+                month = i + 1; }
         }
         return month;
     }
