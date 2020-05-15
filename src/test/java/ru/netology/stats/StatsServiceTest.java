@@ -2,59 +2,51 @@ package ru.netology.stats;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 class StatsServiceTest {
     int[] purchases = {8, 15, 13, 15, 17, 20, 19, 20, 16, 14, 14, 18};
 
     @Test
-    void SumSales() {
+    void sumSales() {
         StatsService sumSales = new StatsService();
         int sum = sumSales.calculateSum(purchases);
-
-        System.out.printf("Сумма всех продаж = " + sum + "%n");
+        assertEquals(189, sum);
     }
 
     @Test
-    void AverageAmount() {
+    void averageAmount() {
         StatsService averageAmount = new StatsService();
         int averageSum = averageAmount.calculateAverageAmount(purchases);
-
-        System.out.printf("Среднюю сумму продаж в месяц = " + averageSum);
+        assertEquals(15, averageSum);
     }
 
     @Test
-    void SalesHigherMiddle() {
+    void salesHigherMiddle() {
         StatsService quantityHight = new StatsService();
-        int value = quantityHight.SalesHigherMiddle(purchases);
-        System.out.printf("Кол-во месяцев, в которых продажи были выше среднего: " + value);
+        int value = quantityHight.salesHigherMiddle(purchases);
+        assertEquals(6, value);
     }
 
     @Test
-    void SalesLowMiddle() {
+    void salesLowMiddle() {
         StatsService quantityLow = new StatsService();
-        int value = quantityLow.SalesLowMiddle(purchases);
-        System.out.printf("Кол-во месяцев, в которых продажи были ниже среднего: " + value);
+        int value = quantityLow.salesLowMiddle(purchases);
+        assertEquals(4, value);
     }
 
     @Test
-    void calculateMin() {
+    void monthMinSales() {
         StatsService minSales = new StatsService();
-        int min = minSales.calculateMin(purchases);
-
-        for (int i = 0; i < purchases.length; i++) {
-            if (min == purchases[i]) {
-                System.out.println("Номер месяца с минимальными продажами: " + (i+1)); }
-        }
+        int month = minSales.calculateMin(purchases);
+        assertEquals(1, month);
     }
 
 
     @Test
-    void calculateMax() {
+    void monthMaxSales() {
         StatsService maxSales = new StatsService();
-        int max = maxSales.calculateMax(purchases);
-
-        for (int i = 0; i < purchases.length; i++) {
-            if (max == purchases[i]) {
-                System.out.println("Номер месяца с максимальными продажами: " + (i+1) ); }
+        int month = maxSales.calculateMax(purchases);
+        assertEquals(8, month);
         }
-    }
 }
